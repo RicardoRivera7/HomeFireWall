@@ -28,7 +28,8 @@ This is a project to create your own firewall environment at home using Pfsense 
 <h2>Setup Walk-through:</h2>
 
 <p align="left">
-Click the download link and download the correct pfsense version you need, AMD64 version works for most users and select the ISO Installer option: <br/>
+Click the download link and download the correct pfsense version you need (AMD64 version works for most users) <br/> 
+Select the DVD ISO Installer option: <br/>
 <img src="https://i.imgur.com/iYxlJRu.png" height="80%" width="80%" alt="Firewall Steps"/>
 <br />
 <br />
