@@ -6,7 +6,7 @@ This is a project to create your own firewall environment at home using Pfsense 
 <br />
 
 <h2>Prerequisites</h2>
-- <b>Know to to use Virtualbox and create new machines</b> 
+- <b>Know how to use Virtualbox and be able to create new machines</b> 
 
 <h2>Software Used</h2>
 
