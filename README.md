@@ -25,6 +25,13 @@ This is a project to create your own firewall environment at home using Pfsense 
 -[Pfsense](https://www.pfsense.org/download/)
 
 
+<h2>Network Diagram</h2>
+<img src="https://i.imgur.com/fSardhm.png" height="80%" width="80%" alt="Firewall Steps"/>
+<br />
+<br />
+
+
+
 <h2>Setup Walk-through:</h2>
 
 <p align="left">
@@ -52,7 +59,7 @@ Select the machine and Click settings the click the network tab. Here we will be
 For all adpaters make sure that "Enable Network Adaptor" is checked and do the following: <br/>
 Adapter 1 Attached to is NAT <br/>
 Adapter 2 Attached to is Internal Network <br/>
-Adapter 3 Attached to is Internal Network <br/>
+Adapter 3 Attached to is Internal Network and under name put it as: DMZ <br/>
 <img src="https://i.imgur.com/FKv6KgG.png" height="80%" width="80%" alt="Firewall Steps"/>
 <br />
   
@@ -113,7 +120,10 @@ Go through the installation wizard and then you have your firewall all setup usi
 <br/>
 
 
-<h1>Adding a DMZ (optional)</h1>
+<h1>Adding a DMZ (optional)</h1> <br/>
+
+
+<h2>Setting up DMZ on Pfsense Interface</h2>
 Once fully logged in and installed you should be on the dashboard <br/>
 If you scroll down you can see your two interfaces: WAN and LAN <br/>
 <img src="https://i.imgur.com/IQslNaF.png" height="80%" width="80%" alt="Firewall Steps"/>  
@@ -131,7 +141,7 @@ Let's do the following: <br/>
 <em>In the description setting, rename it to "DMZ" <br/>
 Turn on the box for "Enable Interface" <br/>
 In the IPv4 Configuration Type select "Static IPv4" <br/>
-Under the "Static IPv4 Configuration" section set the  IPv4 Address (I used 192.168.2.1) and set the subnet mask to "/24"
+Under the "Static IPv4 Configuration" section set the  IPv4 Address (I used 192.168.2.1) and set the subnet mask to "/24" <br/>
 Click Save </em> <br/>
 <img src="https://i.imgur.com/oPgRHLm.png" height="80%" width="80%" alt="Firewall Steps"/>
 <img src="https://i.imgur.com/eSWjkfZ.png" height="80%" width="80%" alt="Firewall Steps"/>  
@@ -163,6 +173,68 @@ Click the green "Apply changes" button <br/>
 <img src="https://i.imgur.com/cLCj1I6.png" height="80%" width="80%" alt="Firewall Steps"/>  
 <br/>
 <br/>
+
+If you go back to your Dashboard, in the interfaces section you should see the newly added DMZ <br/>
+<img src="https://i.imgur.com/6dGVFTl.png" height="80%" width="80%" alt="Firewall Steps"/>  
+<br/>
+<br/>
+
+Let's add a firewall fule to allow DMZ traffic <br/>
+On the top tool bar click on "Firewall" -> then click on "rules" and select DMZ <br/>
+Click the green "Add" button to add a rule <br/> <br/> <br/>
+
+Do the following:
+<em> Make sure action is set as Pass <br/>
+Set Protocol to ANY <br/>
+Set Source as DMZ subnet <br/>
+Set Destination as ANY <br/>
+Put any description you see fit such as "Allow outbound traffic" <br/>
+Click Save </em> <br/>
+<img src="https://i.imgur.com/nsKhMb7.png" height="80%" width="80%" alt="Firewall Steps"/>  
+<br/>
+<br/>
+
+Click the green "Apply changes" button <br/>
+Your firewall rules should be all set! <br/>
+
+
+
+
+<h2>Setting up DMZ Machine</h2> 
+
+Set up another machine, can be Ubuntu or whatever you prefer (I just cloned my current Ubuntu machine that I setup for the LAN) <br/>
+Go to the settings and go to the network settings <br/> 
+Select the network attached to: Internal network <br/>
+Name it as the same thing you did for the pfsense adpater 3, in my case I name it DMZ <br/>
+<img src="https://i.imgur.com/oWtHpn0.png" height="80%" width="80%" alt="Firewall Steps"/>  
+<br/>
+<br/>
+
+Run the machine and open the terminal <br/>
+Let's see if the ip assigned is one of the DMZ ones <br/>
+Type ifconfig <br/>
+Check to see if the ip assigned is within the previous range you gave it, for me its 192.168.2.100 so it's within range <br/> 
+<img src="https://i.imgur.com/8jqEidK.png" height="80%" width="80%" alt="Firewall Steps"/>  
+<br/> 
+<br/>
+
+Let's check if its able to connect to the DMZ IP <br/>
+Type ping 192.168.2.1 (or whatever you set up as your DMZ IP) <br/> 
+You should get a response if successful <br/>
+<img src="https://i.imgur.com/JF1YddA.png" height="80%" width="80%" alt="Firewall Steps"/>  
+<br/> 
+<br/>
+
+Now let's test if it can connect to the internet <br/>
+Type ping 8.8.8.8 <br/>
+You should get a response if successful <br/>
+<img src="https://i.imgur.com/uzgBv7w.png" height="80%" width="80%" alt="Firewall Steps"/>  
+<br/> 
+<br/>
+
+Congrats you fully setup a firewall with DMZ!
+
+
 
 
 
