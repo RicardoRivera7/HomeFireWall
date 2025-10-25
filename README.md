@@ -109,6 +109,63 @@ Password is pfsense <br/>
 <br/>
 
 Go through the installation wizard and then you have your firewall all setup using pfsense!
+<br/>
+<br/>
+
+
+<h1>Adding a DMZ (optional)</h1>
+Once fully logged in and installed you should be on the dashboard <br/>
+If you scroll down you can see your two interfaces: WAN and LAN <br/>
+<img src="https://i.imgur.com/IQslNaF.png" height="80%" width="80%" alt="Firewall Steps"/>  
+<br/>
+<br/>
+
+To add our DMZ, on the top tool bar select "Interfaces" -> click on "Assignments" <br/>
+Click the green "Add" button and you should see a new line called "OPT1" added <br/>
+<img src="https://i.imgur.com/epYVOjC.png" height="80%" width="80%" alt="Firewall Steps"/>  
+<br/>
+<br/>
+
+Click on the blue OPT1 text so we can edit it <br/>
+Let's do the following: <br/>
+<em>In the description setting, rename it to "DMZ" <br/>
+Turn on the box for "Enable Interface" <br/>
+In the IPv4 Configuration Type select "Static IPv4" <br/>
+Under the "Static IPv4 Configuration" section set the  IPv4 Address (I used 192.168.2.1) and set the subnet mask to "/24"
+Click Save </em> <br/>
+<img src="https://i.imgur.com/oPgRHLm.png" height="80%" width="80%" alt="Firewall Steps"/>
+<img src="https://i.imgur.com/eSWjkfZ.png" height="80%" width="80%" alt="Firewall Steps"/>  
+<br/>
+<br/>
+
+Click the green "Apply Changes" button <br/>
+<img src="https://i.imgur.com/8dv08bH.png" height="80%" width="80%" alt="Firewall Steps"/>  
+<br/>
+<br/>
+
+On the top tool bar click on "Services" -> click "DHCP Server" <br/>
+There should be a DMZ section, click on it <br/>
+<img src="https://i.imgur.com/xOnURQo.png" height="80%" width="80%" alt="Firewall Steps"/>  
+<br/>
+<br/>
+
+Do the following: <br/>
+<em> Turn on the box for "Enable DHCP Server on DMZ Interface" <br/>
+Under the "Primary Adress Pool" section, go to the "Adress Pool Range area" <br/>
+Enter two different ip ranges, but make sure they fit within the Subnet range which is shown directly above it <br/>
+(Note: I selected the range of 192.168.2.100 - 192.168.2.199 so that I know anything within the 100 range was assigned by DHCP) <br/>
+Click Save </em> <br/>
+<img src="https://i.imgur.com/1UIbfuT.png" height="80%" width="80%" alt="Firewall Steps"/>  
+<br/>
+<br/>
+
+Click the green "Apply changes" button <br/>
+<img src="https://i.imgur.com/cLCj1I6.png" height="80%" width="80%" alt="Firewall Steps"/>  
+<br/>
+<br/>
+
+
+
 
   
 </p>
