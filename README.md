@@ -52,7 +52,7 @@ Select the machine and Click settings the click the network tab. Here we will be
 For all adpaters make sure that "Enable Network Adaptor" is checked and do the following: <br/>
 Adapter 1 Attached to is NAT <br/>
 Adapter 2 Attached to is Internal Network <br/>
-Adapter 1 Attached to is Internal Network <br/>
+Adapter 3 Attached to is Internal Network <br/>
 <img src="https://i.imgur.com/FKv6KgG.png" height="80%" width="80%" alt="Firewall Steps"/>
 <br />
   
