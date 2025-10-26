@@ -26,7 +26,7 @@ This is a project to create your own firewall environment at home using Pfsense 
 
 
 <h2>Network Diagram</h2>
-<img src="https://i.imgur.com/fSardhm.png" height="80%" width="80%" alt="Firewall Steps"/>
+<img src="https://i.imgur.com/5EpzDZa.png" height="80%" width="80%" alt="Firewall Steps"/>
 <br />
 <br />
 
